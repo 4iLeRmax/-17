@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css?_v=20221127175857">
+  <title>Магазин</title>
+</head>
+<body>
+
+  <div class="call">
+    <div class="call__card">
+      <div class="close"></div>
+      <div class="call__main">
+        <h1 class="call__title">Заказать обратный звонок</h1>
+        <form>
+          <input type="text" class="call_inp call__name" placeholder="Имя">
+          <input type="text" class="call_inp call__mail" placeholder="E-mail">
+          <input type="text" class="call_inp call__phoneNumber" placeholder="Телефон">
+          <button class="call__btn">Заказать звонок</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <header>
+  <div class="header">
+    <div class="logo__block">
+      <a href="index.html" class="logo">
+        <img src="img/logo.svg">
+      </a>
+      <div class="burger__menu"></div>
+    </div>
+    <div class="header__links">
+      <a href="index.html" class="header__link hText">Главная</a>
+      <a href="shop.html" class="header__link hText">Магазин</a>
+      <a href="about.html" class="header__link hText">О бренде</a>
+      <a href="contacts.html" class="header__link hText">Контакты</a>
+    </div>
+    <div class="header__add">
+      <div class="header__phone">
+        <div class="phone">
+          <img src="img/phone.svg">
+          <img src="img/phone white.svg">
+        </div>
+        <p class="header__number hText">+7 (495) 823-54-12</p>
+      </div>
+      <a href="basket.html" class="basket">
+        <img src="img/basket.svg">
+        <div class="basket__count">0</div>
+      </a>
+    </div>
+  </div>
+</header>
+
+    <main>
+      <div class="container">
+        <div class="shop w100p">
+          <h1 class="shop__title Btitle">Магазин</h1>
+          <div class="crumbs">
+            <a href="index.html" class="crumb__link">Главная</a>
+            <a href="shop.html" class="crumb__link">Магазин</a>
+          </div>
+  
+          <div class="shop__main">
+            <div class="shop__btns">
+              <button data-tab="#tab_1" class="shop__btn active">Все</button>
+              <button data-tab="#tab_2" class="shop__btn">Пальто</button>
+              <button data-tab="#tab_3" class="shop__btn">Свитшоты</button>
+              <button data-tab="#tab_4" class="shop__btn">Кардиганы</button>
+              <button data-tab="#tab_5" class="shop__btn">Толстовки</button>
+            </div>
+            <div class="shop__result">
+              Показано: 
+              <span class="shopResCount">9</span> 
+              из 12 товаров
+            </div>
+
+
+            <div class="shop__cards collection__cards active" id="tab_1">
+              <a href="product1.html" class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 1.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Футболка USA</h1>
+                <div class="price">
+                  <p class="oldPrice">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </a>
+              <a href="product2.html" class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 2.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Купальник Glow</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </a>
+              <a href="product3.html" class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 3.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Свитшот Sweet Shot</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </a>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 1.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Футболка USA</h1>
+                <div class="price">
+                  <p class="oldPrice">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 2.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Купальник Glow</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 3.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Свитшот Sweet Shot</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 1.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Футболка USA</h1>
+                <div class="price">
+                  <p class="oldPrice">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 2.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Купальник Glow</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 3.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Свитшот Sweet Shot</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="shop__cards collection__cards" id="tab_2"></div>
+
+            <div class="shop__cards collection__cards" id="tab_3">
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 3.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Свитшот Sweet Shot</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 3.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Свитшот Sweet Shot</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 3.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Свитшот Sweet Shot</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 3.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Свитшот Sweet Shot</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 3.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Свитшот Sweet Shot</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="shop__cards collection__cards" id="tab_4">
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 2.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Купальник Glow</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 2.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Купальник Glow</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 2.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Купальник Glow</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 2.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Купальник Glow</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 2.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Купальник Glow</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 2.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Купальник Glow</h1>
+                <div class="price">
+                  <p class="oldPrice dn">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="shop__cards collection__cards" id="tab_5">
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 1.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Футболка USA</h1>
+                <div class="price">
+                  <p class="oldPrice">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 1.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Футболка USA</h1>
+                <div class="price">
+                  <p class="oldPrice">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 1.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Футболка USA</h1>
+                <div class="price">
+                  <p class="oldPrice">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+              <div class="shop__card collection__card">
+                <div class="img">
+                  <img src="img/coll card 1.jpg">
+                  <div class="over">
+                    <img src="img/arrow to right.svg">
+                  </div>
+                </div>
+                <h1 class="collection__card__title">Футболка USA</h1>
+                <div class="price">
+                  <p class="oldPrice">$229</p>
+                  <p class="newPrice">$129</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="shop__result">
+              Показано: 
+              <span class="shopResCount">9</span> 
+              из 12 товаров
+            </div>
+            <div class="shop__main__btns">
+              <button class="shop__main__btn active">1</button>
+              <button class="shop__main__btn">2</button>
+              <img src="img/slider arrow.svg">
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+  <div class="container">
+    <div class="footer">
+      <div class="header">
+        <div class="logo">
+          <img src="img/logo.svg">
+        </div>
+        <div class="header__links">
+          <div class="header__link hText">Главная</div>
+          <div class="header__link hText">Магазин</div>
+          <div class="header__link hText">О бренде</div>
+          <div class="header__link hText">Контакты</div>
+        </div>
+        <div class="header__add">
+          <p class="header__number hText">+7 (495) 823-54-12</p>
+          <p class="header__add__mail">hello@womazing.com</p>
+        </div>
+      </div>
+      <div class="footer__main">
+        <div class="footer__links__block">
+          <div class="footer__links">
+            <div class="footer__link">&#169; Все права защищены</div>
+            <div class="footer__link">Политика конфиденциальности</div>
+            <div class="footer__link">Публичная оферта</div>
+          </div>
+          <div class="footer__links">
+            <div class="footer__link">Пальто</div>
+            <div class="footer__link">Свитшоты</div>
+            <div class="footer__link">Кардиганы</div>
+            <div class="footer__link">Толстовки</div>
+          </div>
+        </div>
+        <div class="footer__social">
+          <div class="footer__social__media">
+            <img src="img/instagram.svg">
+            <img src="img/facebook.svg">
+            <img src="img/twitter.svg">
+          </div>
+          <div class="footer__bank">
+            <img src="img/visa.svg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <script src="js/app.min.js?_v=20221127175857"></script>
+
+</body>
+</html>

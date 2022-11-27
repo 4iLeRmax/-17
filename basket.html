@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css?_v=20221127175857">
+  <title>Корзина</title>
+</head>
+<body>
+
+  <div class="call">
+    <div class="call__card">
+      <div class="close"></div>
+      <div class="call__main">
+        <h1 class="call__title">Заказать обратный звонок</h1>
+        <form>
+          <input type="text" class="call_inp call__name" placeholder="Имя">
+          <input type="text" class="call_inp call__mail" placeholder="E-mail">
+          <input type="text" class="call_inp call__phoneNumber" placeholder="Телефон">
+          <button class="call__btn">Заказать звонок</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <header>
+  <div class="header">
+    <div class="logo__block">
+      <a href="index.html" class="logo">
+        <img src="img/logo.svg">
+      </a>
+      <div class="burger__menu"></div>
+    </div>
+    <div class="header__links">
+      <a href="index.html" class="header__link hText">Главная</a>
+      <a href="shop.html" class="header__link hText">Магазин</a>
+      <a href="about.html" class="header__link hText">О бренде</a>
+      <a href="contacts.html" class="header__link hText">Контакты</a>
+    </div>
+    <div class="header__add">
+      <div class="header__phone">
+        <div class="phone">
+          <img src="img/phone.svg">
+          <img src="img/phone white.svg">
+        </div>
+        <p class="header__number hText">+7 (495) 823-54-12</p>
+      </div>
+      <a href="basket.html" class="basket">
+        <img src="img/basket.svg">
+        <div class="basket__count">0</div>
+      </a>
+    </div>
+  </div>
+</header>
+
+    <main>
+      <div class="container">
+        <div class="cart w100p">
+
+          <h1 class="cart__title shop__title Btitle">Корзина</h1>
+          <div class="crumbs">
+            <a href="index.html" class="crumb__link">Главная</a>
+            <a href="basket.html" class="crumb__link">Корзина</a>
+          </div>
+
+          <div class="cart__main">
+            <div class="cart__header">
+              <h4 class="cart__header__col">Товар</h4>
+              <h4 class="cart__header__col">Цена</h4>
+              <h4 class="cart__header__col">Количество</h4>
+              <h4 class="cart__header__col">Всего</h4>
+            </div>
+  
+            <div class="cart__cards"></div>
+            <div class="cart__btns">
+              <div class="coupon__block">
+                <input type="text" class="input__coupon" placeholder="Введите купон">
+                <button class="cart__btn apply">Применить купон</button>
+                <div class="good">Купон найден</div>
+                <div class="bad">Купон не найден</div>
+              </div>
+              <button class="cart__btn reload">Обновить корзину</button>
+            </div>
+
+            <div class="cart__total">
+              <div class="cart__total__header">
+                <h4>Подытог:</h4>
+                <p>$<span>0</span></p>
+              </div>
+              <div class="cart__total__main">
+                <div class="total">
+                  <h3>Итого:</h3>
+                  <p>$<span>0</span></p>
+                </div>
+                <button class="cart__total__btn product__info__btn">Оформить заказ</button>
+              </div>
+            </div>
+  
+          </div>
+
+        </div>
+
+  
+      </div>  
+    </main>
+    
+    <footer>
+  <div class="container">
+    <div class="footer">
+      <div class="header">
+        <div class="logo">
+          <img src="img/logo.svg">
+        </div>
+        <div class="header__links">
+          <div class="header__link hText">Главная</div>
+          <div class="header__link hText">Магазин</div>
+          <div class="header__link hText">О бренде</div>
+          <div class="header__link hText">Контакты</div>
+        </div>
+        <div class="header__add">
+          <p class="header__number hText">+7 (495) 823-54-12</p>
+          <p class="header__add__mail">hello@womazing.com</p>
+        </div>
+      </div>
+      <div class="footer__main">
+        <div class="footer__links__block">
+          <div class="footer__links">
+            <div class="footer__link">&#169; Все права защищены</div>
+            <div class="footer__link">Политика конфиденциальности</div>
+            <div class="footer__link">Публичная оферта</div>
+          </div>
+          <div class="footer__links">
+            <div class="footer__link">Пальто</div>
+            <div class="footer__link">Свитшоты</div>
+            <div class="footer__link">Кардиганы</div>
+            <div class="footer__link">Толстовки</div>
+          </div>
+        </div>
+        <div class="footer__social">
+          <div class="footer__social__media">
+            <img src="img/instagram.svg">
+            <img src="img/facebook.svg">
+            <img src="img/twitter.svg">
+          </div>
+          <div class="footer__bank">
+            <img src="img/visa.svg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+  <script src="js/app.min.js?_v=20221127175857"></script>
+  <script>
+    let src;
+    let name;
+    let count;
+    let price;
+    let active;
+    let block = document.querySelector('.cart__cards');
+
+    // let pr3;
+
+
+      // pr3 = JSON.parse(localStorage.getItem('pr3'));
+    window.onload = ()=>{
+
+      const cart = {};
+      try{
+        cart.product1 = JSON.parse(localStorage.getItem('pr1'));
+
+        src = cart.product1.src;
+        name = cart.product1.name;
+        count = cart.product1.count;
+        price = cart.product1.price;
+        pr = cart.product1.num;
+        // console.log(name);
+        create(src,name,price,count,pr);
+      } catch{console.log('pr1 err')}
+      try{
+        cart.product2 = JSON.parse(localStorage.getItem('pr2'));
+      
+        src = cart.product2.src;
+        name = cart.product2.name;
+        count = cart.product2.count;
+        price = cart.product2.price;
+        pr = cart.product2.num;
+        // console.log(name);
+        create(src,name,price,count,pr);
+      
+      } catch{console.log('pr2 err')}
+      try{
+        cart.product3 = JSON.parse(localStorage.getItem('pr3'));
+
+        src = cart.product3.src;
+        name = cart.product3.name;
+        count = cart.product3.count;
+        price = cart.product3.price;
+        pr = cart.product3.num;
+        // console.log(name);
+        create(src,name,price,count,pr);
+      
+      } catch{console.log('pr3 err')}
+
+      console.log(cart);
+    }
+
+
+    function create(src,name,price,count,num){
+       //CART__INFO__COL 1
+       let cartInfoCol1 = document.createElement('div');
+      cartInfoCol1.classList.add('cart__info__col');
+      // console.log(cartInfoCol1);
+
+          //CART__CLOSE
+          let cartClose = document.createElement('div');
+          cartClose.classList.add('cart__close');
+
+          cartInfoCol1.appendChild(cartClose);
+
+          //CART__IMG
+          let cartImg = document.createElement('img');
+          cartInfoCol1.appendChild(cartImg);
+
+          //cart__product__name
+          let cartProductName = document.createElement('p');
+          cartProductName.classList.add('cart__product__name');
+
+          cartInfoCol1.appendChild(cartProductName);
+
+      //CART__INFO__COL 2
+      let cartInfoCol2 = document.createElement('div');
+      cartInfoCol2.classList.add('cart__info__col');
+      // console.log(cartInfoCol2);
+      
+          //TOTAL__PRICE
+          let cartPrice = document.createElement('div');
+          cartPrice.classList.add('cart__price');
+          // console.log(cartPrice);
+
+          cartInfoCol2.appendChild(cartPrice);
+
+      //CART__INFO__COL 3
+      let cartInfoCol3 = document.createElement('div');
+      cartInfoCol3.classList.add('cart__info__col');
+      // console.log(cartInfoCol3);
+
+          //PRODUCT__AMOUNT
+          let productAmount = document.createElement('input');
+          productAmount.classList.add('product__amount');
+
+          cartInfoCol3.appendChild(productAmount);
+
+      //CART__INFO__COL 4
+      let cartInfoCol4 = document.createElement('div');
+      cartInfoCol4.classList.add('cart__info__col');
+      // console.log(cartInfoCol4);
+
+          //TOTAL__PRICE
+          let totalPrice = document.createElement('div');
+          totalPrice.classList.add('total__price');
+          // console.log(totalPrice);
+
+          cartInfoCol4.appendChild(totalPrice);
+      
+      
+      //CART__INFO
+      cartInfo = document.createElement('div');
+      cartInfo.classList.add('cart__info');
+      // console.log(cartInfo);
+
+      cartInfo.appendChild(cartInfoCol1);
+      cartInfo.appendChild(cartInfoCol2);
+      cartInfo.appendChild(cartInfoCol3);
+      cartInfo.appendChild(cartInfoCol4);
+      
+      block.appendChild(cartInfo);
+
+
+      // if(!cartInfo.classList.contains('active')){
+      //   cartInfo.classList.add(active);
+      // }
+
+      cartImg.src = src;
+      cartProductName.textContent = name;
+      cartPrice.textContent = `$${price}`;
+      productAmount.value = count;
+
+
+
+      totalPrice.textContent = `$${(cartPrice.textContent).slice(1,4) * productAmount.value}`;
+
+      productAmount.oninput = () =>{
+        totalPrice.textContent = `$${(cartPrice.textContent).slice(1,4) * productAmount.value}`;
+      }
+
+      cartClose.onclick = ()=>{
+        localStorage.removeItem(num);
+        // cartInfo.classList.remove('active');
+      }
+    }
+
+
+    let cartBtn = document.querySelectorAll('.cart__btn');
+    let inputCoupon = document.querySelector('.input__coupon');
+    let good = document.querySelector('.coupon__block .good');
+    let bad = document.querySelector('.coupon__block .bad');
+      for(let i=0; i<cartBtn.length; i++){
+        cartBtn[i].onmousedown = ()=>{
+          if(!cartBtn[i].classList.contains('active')){
+            cartBtn[i].classList.add('active');
+            }
+        }
+        cartBtn[i].onmouseup = ()=>{
+          if(cartBtn[i].classList.contains('active')){
+            cartBtn[i].classList.remove('active');
+          }
+        }
+        cartBtn[0].onclick = ()=>inpERR();
+        cartBtn[1].onclick = ()=>location.reload();
+      }
+      let coupon = 'loh';
+      function inpERR(){
+        if(inputCoupon.value==''){
+          inputCoupon.classList.add('err');
+        }
+        if(inputCoupon.value == coupon){
+          bad.style.display = 'none';
+          inputCoupon.classList.remove('err');
+          good.style.display = 'flex';
+          inputCoupon.classList.add('approved');
+        }
+        if(inputCoupon.value !== coupon && inputCoupon.value !==''){
+          good.style.display = 'none';
+          inputCoupon.classList.remove('approved');
+          bad.style.display = 'flex';
+          inputCoupon.classList.add('err');
+        }
+      }
+      inputCoupon.onkeypress = (e)=>{
+        if(e.key =='Enter') inpERR();
+        inputCoupon.oninput = ()=>{
+          if(inputCoupon.value==''){
+            good.style.display = 'none';
+            bad.style.display = 'none';
+            inputCoupon.classList.remove('approved');
+            inputCoupon.classList.remove('err');
+          }
+        }
+      }
+      inputCoupon.onfocus = ()=>{
+        inputCoupon.classList.remove('err');
+      }
+
+
+
+</script>
+
+</body>
+</html>
