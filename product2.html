@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20221127175857">
+  <link rel="stylesheet" href="css/style.min.css?_v=20221206132324">
   <title>Купальник Glow</title>
 </head>
 <body>
@@ -49,10 +49,17 @@
       </div>
       <a href="basket.html" class="basket">
         <img src="img/basket.svg">
-        <div class="basket__count">0</div>
+        <div class="basket__count"></div>
       </a>
     </div>
   </div>
+  <script>
+
+    // window.onstorage = ()=>{
+    //   console.log('changed');
+    // }
+
+  </script>
 </header>
 
     <main>
@@ -179,7 +186,6 @@
 </footer>
   </div>
 
-  <script src="js/app.min.js?_v=20221127175857"></script>
   <script>
   let productBtn = document.querySelector('.product__info__btn');
   let productCount = document.querySelector('.product__amount');
@@ -188,6 +194,8 @@
   let productName = document.querySelector('.product__title');
 
   let productSRC = 'img/coll card 2.jpg';
+
+  let i = 0;
 
   productBtn.onclick = ()=>{
     // localStorage.setItem('active', JSON.stringify('active'));
@@ -200,7 +208,21 @@
       num: 'pr2',
     };
     localStorage.setItem('pr2', JSON.stringify(pr2));
+
+    while (i<1){
+      if(localStorage.getItem('length')){
+        let b = JSON.parse(localStorage.getItem('length'));
+        b++;
+        localStorage.setItem('length', JSON.stringify(b));
+        // break;
+      }
+      else{
+        localStorage.setItem('length', JSON.stringify(1));
+      }
+      i++;
+    }
   }
   </script>
+  <script src="js/app.min.js?_v=20221206132324"></script>
 </body>
 </html>

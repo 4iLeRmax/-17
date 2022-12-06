@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20221127175857">
+  <link rel="stylesheet" href="css/style.min.css?_v=20221206132324">
   <title>Корзина</title>
 </head>
 <body>
@@ -49,10 +49,17 @@
       </div>
       <a href="basket.html" class="basket">
         <img src="img/basket.svg">
-        <div class="basket__count">0</div>
+        <div class="basket__count"></div>
       </a>
     </div>
   </div>
+  <script>
+
+    // window.onstorage = ()=>{
+    //   console.log('changed');
+    // }
+
+  </script>
 </header>
 
     <main>
@@ -73,7 +80,7 @@
               <h4 class="cart__header__col">Всего</h4>
             </div>
   
-            <div class="cart__cards"></div>
+            <div class="cart__cards" id="block"></div>
             <div class="cart__btns">
               <div class="coupon__block">
                 <input type="text" class="input__coupon" placeholder="Введите купон">
@@ -88,6 +95,7 @@
               <div class="cart__total__header">
                 <h4>Подытог:</h4>
                 <p>$<span>0</span></p>
+                <div class="discount">- <span>10</span>%</div>
               </div>
               <div class="cart__total__main">
                 <div class="total">
@@ -153,20 +161,29 @@
   </div>
 </footer>
   </div>
-  <script src="js/app.min.js?_v=20221127175857"></script>
+  <script src="js/app.min.js?_v=20221206132324"></script>
   <script>
+
+
+
     let src;
     let name;
     let count;
     let price;
-    let active;
+    let pr;
     let block = document.querySelector('.cart__cards');
+    let coupon = '123';
+    let couponVal = 10;
+    let subtotalCostCount = 0;
+    let subtotal = document.querySelector('.cart__total__header p span');
+    let total = document.querySelector('.total p span');
+    
 
     // let pr3;
 
 
       // pr3 = JSON.parse(localStorage.getItem('pr3'));
-    window.onload = ()=>{
+    // window.onload = ()=>{
 
       const cart = {};
       try{
@@ -177,8 +194,10 @@
         count = cart.product1.count;
         price = cart.product1.price;
         pr = cart.product1.num;
-        // console.log(name);
-        create(src,name,price,count,pr);
+
+        createItem(src,name,price,count,pr);
+        deleteItem((price*count));
+        subtotalCost((price*count));
       } catch{console.log('pr1 err')}
       try{
         cart.product2 = JSON.parse(localStorage.getItem('pr2'));
@@ -188,9 +207,10 @@
         count = cart.product2.count;
         price = cart.product2.price;
         pr = cart.product2.num;
-        // console.log(name);
-        create(src,name,price,count,pr);
-      
+
+        createItem(src,name,price,count,pr);
+        deleteItem((price*count));
+        subtotalCost((price*count));
       } catch{console.log('pr2 err')}
       try{
         cart.product3 = JSON.parse(localStorage.getItem('pr3'));
@@ -200,16 +220,20 @@
         count = cart.product3.count;
         price = cart.product3.price;
         pr = cart.product3.num;
-        // console.log(name);
-        create(src,name,price,count,pr);
-      
+
+        createItem(src,name,price,count,pr);
+        deleteItem((price*count));
+        subtotalCost((price*count));
       } catch{console.log('pr3 err')}
 
-      console.log(cart);
-    }
+      // console.log(cart);
+      // deleteItem();
 
 
-    function create(src,name,price,count,num){
+
+    // }
+
+    function createItem(src,name,price,count,num){
        //CART__INFO__COL 1
        let cartInfoCol1 = document.createElement('div');
       cartInfoCol1.classList.add('cart__info__col');
@@ -270,6 +294,8 @@
       //CART__INFO
       cartInfo = document.createElement('div');
       cartInfo.classList.add('cart__info');
+      cartInfo.classList.add('active');
+      cartInfo.classList.add(num);//------------------
       // console.log(cartInfo);
 
       cartInfo.appendChild(cartInfoCol1);
@@ -279,30 +305,86 @@
       
       block.appendChild(cartInfo);
 
-
-      // if(!cartInfo.classList.contains('active')){
-      //   cartInfo.classList.add(active);
-      // }
-
       cartImg.src = src;
       cartProductName.textContent = name;
       cartPrice.textContent = `$${price}`;
       productAmount.value = count;
 
-
-
-      totalPrice.textContent = `$${(cartPrice.textContent).slice(1,4) * productAmount.value}`;
+      totalPrice.textContent = `$${price*count}`;
+      
 
       productAmount.oninput = () =>{
-        totalPrice.textContent = `$${(cartPrice.textContent).slice(1,4) * productAmount.value}`;
-      }
+        if(productAmount.value){
+          let a = JSON.parse(localStorage.getItem(num))
+          a.count = productAmount.value;
+          localStorage.setItem(num, JSON.stringify(a))
+          totalPrice.textContent = `$${price * productAmount.value}`;
+          // console.log(price);
+          // console.log(productAmount.value);
+          
+          // console.log(subtotalCostCount)
+          // console.log(productAmount.value * price);
 
-      cartClose.onclick = ()=>{
-        localStorage.removeItem(num);
-        // cartInfo.classList.remove('active');
+          // subtotalCost(productAmount.value*price,'','');
+        }
+      }
+    }
+    
+    function deleteItem(cost){
+      let ci = document.querySelectorAll('.cart__info');
+      let cc = document.querySelectorAll('.cart__close');
+      // let tp = document.querySelectorAll('.total__price');
+      let cp = document.querySelectorAll('.cart__price');
+      let pa = document.querySelectorAll('.product__amount');
+
+      for(let i=0; i<ci.length; i++){
+        cc[i].onclick = ()=>{
+          let rem = ci[i].classList[2];
+          localStorage.removeItem(rem);//---------------------
+          let a = JSON.parse(localStorage.getItem('length'));
+          a--;
+          if(a==0){
+            localStorage.removeItem('length');
+          }
+          else if(a>0){
+            localStorage.setItem('length', JSON.stringify(a));
+          }
+          ci[i].classList.remove('active');
+
+          subtotalCost('', cp[i], pa[i]);
+        }
       }
     }
 
+    function subtotalCost(cost, cartP, productA){
+      if(cost){
+        subtotalCostCount+=cost;
+        subtotal.innerHTML = subtotalCostCount;
+
+        // console.log('total ' + subtotalCostCount);
+        // console.log('Item price ' + price);
+      }
+      else{
+        let cp = Number((cartP.textContent).slice(1,4));
+        let pa = Number(productA.value);
+        // console.log(cp);
+        // console.log(pa);
+        let cppa = cp*pa;
+        subtotalCostCount-=cppa;
+        subtotal.innerHTML = subtotalCostCount;
+      }
+      totalCost(subtotalCostCount);
+    }
+
+    function totalCost(cost){
+      if(cost){
+        total.innerHTML = cost;
+      }
+      else{
+        total.innerHTML = Math.round(subtotalCostCount - (subtotalCostCount * (couponVal/100)));
+      }
+      // total.innerHTML = cost;
+    }
 
     let cartBtn = document.querySelectorAll('.cart__btn');
     let inputCoupon = document.querySelector('.input__coupon');
@@ -322,7 +404,6 @@
         cartBtn[0].onclick = ()=>inpERR();
         cartBtn[1].onclick = ()=>location.reload();
       }
-      let coupon = 'loh';
       function inpERR(){
         if(inputCoupon.value==''){
           inputCoupon.classList.add('err');
@@ -332,6 +413,9 @@
           inputCoupon.classList.remove('err');
           good.style.display = 'flex';
           inputCoupon.classList.add('approved');
+          document.querySelector('.discount').classList.add('active');
+          // total.innerHTML = 20;//-----------------------
+          totalCost();
         }
         if(inputCoupon.value !== coupon && inputCoupon.value !==''){
           good.style.display = 'none';
@@ -354,6 +438,7 @@
       inputCoupon.onfocus = ()=>{
         inputCoupon.classList.remove('err');
       }
+
 
 
 
